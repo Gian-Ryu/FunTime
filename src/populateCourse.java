@@ -17,7 +17,7 @@ public class populateCourse {
         for (int i = 0; i < arr.size(); i++) {
             String[] str = arr.get(i).split("\\|");
             int id = i + 1;
-            inserts.add("INSERT INTO Course ( course_id, course_name, type ) VALUES (" + id + ", '" + str[0] + "', '" + str[1] + "');");
+            inserts.add("INSERT INTO Course (course_id, course_name, type) VALUES (" + id + ", '" + str[0] + "', '" + str[1] + "');");
         }
         for (String course : inserts) {
             System.out.println(course);

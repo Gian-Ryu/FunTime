@@ -7,9 +7,13 @@ public class populateAssignment {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) // replace 10 with number of classes
         {
-            for (int n = 0; n < 12; n++) {
-                System.out.println("INSERT INTO Assignments ( assignment_id integer, class_id integer, weight_id integer,) VALUES (" + n + ", " + i + ", 1);");
+            for (int n = 1; n < 13; n++) {
+                System.out.println("INSERT INTO Assignments (assignment_id, class_id, weight_id) VALUES (" + n + ", " + i + ", 1);");
             }
+            for (int n = 13; n < 16; n++) {
+                System.out.println("INSERT INTO Assignments (assignment_id, class_id, weight_id) VALUES (" + n + ", " + i + ", 2);");
+            }
+
         }
     }
 }

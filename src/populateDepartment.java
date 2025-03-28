@@ -14,7 +14,7 @@ public class populateDepartment {
         ArrayList<String> inserts = new ArrayList<>();
         for (int i = 0; i < arr.size(); i++) {
             int id = i + 1;
-            inserts.add("INSERT INTO Department ( department_id, department_name ) VALUES ( " + id + ", '" + arr.get(i) + "');");
+            inserts.add("INSERT INTO Department (department_id, department_name) VALUES (" + id + ", '" + arr.get(i) + "');");
         }
         for (String department : inserts) {
             System.out.println(department);
