@@ -18,7 +18,7 @@ public class populateTeacher {
         for (int i = 0; i < arr.size(); i++) {
             String[] str = arr.get(i).split("\\|");
             int id = i + 1;
-            inserts.add("INSERT INTO Teacher (teacher_id, first_name, last_name, department_id) VALUES (" + id + ", '" + str[0] + "', '" + str[1] + "', " + str[2] + ");");
+            inserts.add("INSERT INTO Teacher (teacher_id, name, department_id) VALUES (" + id + ", '" + str[0] + "', '" + str[1] + "');");
         }
         for (String teacher : inserts) {
             System.out.println(teacher);

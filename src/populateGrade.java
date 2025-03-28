@@ -17,16 +17,17 @@ import java.util.Random;
 public class populateGrade {
     public static void main(String[] args) {
         for (int i = 1; i < 5001; i++) {
-            for (int minor = 1; minor < 13; minor++) {
-                int grade = (int)(Math.random() * 26) + 75;
-                System.out.println("INSERT INTO AssignmentGrade (student_id, assignment_id, grade) VALUES (" + i + ", " + minor + ", " + grade + ");");
-                System.out.println("minor grade:" + grade);
+            for (int c = 1; c < 11; c++) {
+                for (int minor = 1; minor < 13; minor++) {
+                    int grade = (int)(Math.random() * 26) + 75;
+                    System.out.println("INSERT INTO AssignmentGrade (student_id, assignment_id, grade) VALUES (" + i + ", " + (minor + 15 * ((i - 1) * 10 + c - 1)) + ", " + grade + ");");
+                }
+                for (int major = 13; major < 16; major++) {
+                    int grade = (int)(Math.random() * 26) + 75;
+                    System.out.println("INSERT INTO AssignmentGrade (student_id, assignment_id, grade) VALUES (" + i + ", " + (major + 15 * ((i - 1) * 10 + c - 1)) + ", " + grade + ");");
+                }
             }
-            for (int major = 13; major < 16; major++) {
-                int grade = (int)(Math.random() * 26) + 75;
-                System.out.println("INSERT INTO AssignmentGrade (student_id, assignment_id, grade) VALUES (" + i + ", " + major + ", " + grade + ");");
-                System.out.println("major grade:" + grade);
-            }
+
         }
     }
 }

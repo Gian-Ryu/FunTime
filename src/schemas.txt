@@ -1,6 +1,6 @@
 CREATE TABLE Student ( student_id integer, first_name varchar(255), last_name varchar(255), PRIMARY KEY (student_id) );
 CREATE TABLE Department ( department_id integer, department_name varchar(255), PRIMARY KEY (department_id) );
-CREATE TABLE Teacher ( teacher_id integer, first_name varchar(255), last_name varchar(255), department_id integer, PRIMARY KEY (teacher_id), FOREIGN KEY (department_id) REFERENCES Department(department_id) );
+CREATE TABLE Teacher ( teacher_id integer, name varchar(255), department_id integer, PRIMARY KEY (teacher_id), FOREIGN KEY (department_id) REFERENCES Department(department_id) );
 CREATE TABLE Room ( room_id integer, room_number varchar(255), PRIMARY KEY (room_id) );
 CREATE TABLE Course ( course_id integer, course_name varchar(255), type varchar(255), PRIMARY KEY (course_id) );
 CREATE TABLE Class ( class_id integer, teacher_id integer, course_id integer, period int, room_id integer, PRIMARY KEY (class_id), FOREIGN KEY (teacher_id) REFERENCES Teacher(teacher_id), FOREIGN KEY (course_id) REFERENCES Course(course_id), FOREIGN KEY (room_id) REFERENCES Room(room_id) );
