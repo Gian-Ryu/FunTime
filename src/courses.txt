@@ -1,3 +1,70 @@
-coursename1|type1
-coursename2|type2
-coursename3|type3
+Algebra1|Regents
+Algebra2|Regents
+Geometry|Regents
+Biology|Regents
+Biology|AP
+Biology|Lab
+Environmental|AP
+Psychology|AP
+Chemistry|Regents
+Chemistry|AP
+Chemistry|Lab
+Organic Chemistry|Elective
+Physics|Regents
+Physics|Lab
+Physics 1|AP
+Physics 2|AP
+Physics C|AP
+Astronomy|Elective
+Modern Physics|Elective
+Precalculus|Elective
+Calculus|Elective
+Calculus AB|AP
+Calculus BC|AP
+Multivariable Calculus|Elective
+Linear Algebra|Elective
+Statistics|AP
+Pre AP World History|Elective
+World History|Regents
+World History|AP
+European History|AP
+US History|Regents
+US History|AP
+US Government|AP
+Comparative Government|AP
+Macroeconomics|AP
+Microeconomics|AP
+Human Geography|AP
+Sociology|Elective
+Anthropology|Elective
+English 9|Elective
+English 10|Elective
+English 11|Elective
+English Literature & Composition|AP
+Capstone Research|AP
+Creative Writing|AP
+Drama|Elective
+Film & Literature|Elective
+Journalism|Elective
+Love|Elective
+Mystery & Horror|Elective
+Science Fiction & Fantasy|Elective
+Yearbook|Elective
+Health|Elective
+Physical Education|Elective
+Computer Science Principles|AP
+Computer Science Applications|AP
+Digital Electronics|Elective
+Web Development & Cybersecurity|Elective
+IT & Big Data|Elective
+Mobile App Development|Elective
+World Languages|Regents
+Spanish|Regents
+Italian|Regents
+German|Regents
+French|Regents
+Chinese|Regents
+Spanish|AP
+Italian|AP
+
+
