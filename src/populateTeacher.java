@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class populateTeacher {
     public static void main(String args[]) {
-        ArrayList<String> teachers = getFileData("src/teachers.txt");
+        ArrayList<String> teachers = getFileData("teachers.txt");
 
         System.out.println("-----insert teachers statements-----");
         teacherInsert(teachers);

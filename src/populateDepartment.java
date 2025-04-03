@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class populateDepartment {
     public static void main(String[] args) {
-        ArrayList<String> departments = getFileData("src/departments.txt");
+        ArrayList<String> departments = getFileData("departments.txt");
 
         System.out.println("-----insert departments statements-----");
         departmentInsert(departments);

@@ -25,7 +25,7 @@ Multivariable Calculus|Elective
 Linear Algebra|Elective
 Statistics|AP
 Pre AP World History|Elective
-World History|Regents
+Global History|Regents
 World History|AP
 European History|AP
 US History|Regents
@@ -46,7 +46,7 @@ Creative Writing|AP
 Drama|Elective
 Film & Literature|Elective
 Journalism|Elective
-Love|Elective
+Life, Love & Death|Elective
 Mystery & Horror|Elective
 Science Fiction & Fantasy|Elective
 Yearbook|Elective
