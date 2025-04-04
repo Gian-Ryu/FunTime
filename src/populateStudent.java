@@ -9,7 +9,7 @@ public class populateStudent {
     public static void main(String[] args) {
         for (int i = 0; i < 5000; i++) {
             int id = i + 1;
-            System.out.println("INSERT INTO STUDENT (student_id, first_name, last_name) VALUES (" + id + ", 'Student" + id + "', 'Last" + id + "');");
+            System.out.println("INSERT INTO Student (student_id, first_name, last_name) VALUES (" + id + ", 'Student" + id + "', 'Last" + id + "');");
         }
     }
 }

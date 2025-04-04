@@ -34,15 +34,16 @@
         Spanish|AP
         Italian|AP
  */
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class populateSchedule {
     private static ArrayList<Integer> teachers = new ArrayList();
     private static ArrayList<Integer> rooms = new ArrayList();
-    public static void getTeachers()
+    public static void getTeachers(int group)
     {
-        for (int t = 0; t < 68; t++)
+        for (int t = 17 * group; t < (17 * (group + 1)); t++)
         {
             int rand = (int)(Math.random() * 272) + 1;
             if (teachers.contains(rand))
@@ -55,9 +56,10 @@ public class populateSchedule {
             }
         }
     }
-    public static void getRooms()
+    public static void getRooms(int group)
     {
-        for (int t = 0; t < 68; t++)
+
+        for (int t = 17 * group; t < (17 * (group + 1)); t++)
         {
             int rand = (int)(Math.random() * 720) + 1;
             if (rooms.contains(rand))
@@ -72,21 +74,54 @@ public class populateSchedule {
     }
     public static void main(String[] args)
     {
-        getTeachers();
-        getRooms();
-        for (int pd = 1; pd < 11; pd++) {
-            //loop for 10 periods
+        int lastPeriod = 0;
+        ArrayList<populateClass> classes = new ArrayList();
+        for (int g = 0; g < 4; g++) {
+            getTeachers(g);
+            getRooms(g);
+            int period = 0;
+            switch (g)
+            {
+                case 0: period = 3;
+                    break;
+                case 1: period = 5;
+                    break;
+                case 2: period = 9;
+                    break;
+                default: period = 11;
+                    break;
+            }
             for (int i = 1; i < 5001; i++) {
                 //student loop
-                System.out.println("INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10 " +
-                        "classid_7 , classid_8 , classid_9 , classid_10) VALUES ( " + i + ",  );");
+                for (int pd = lastPeriod; pd < period; pd++) {
+                    //loop for 10 period
+                    int rClass = (int)(Math.random() * 18) + (17 * (g + 1));
+                    for (populateClass e : classes)
+                    {
+                        if (e.getId() == rClass)
+                        {
+                            //get values from class and put into insert
+                        }
+                    }
+                    classes.add(new populateClass(classes.size() + 1, pd, rClass, rClass, rClass));
+                    System.out.println("INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10 " +
+                            "classid_7 , classid_8 , classid_9 , classid_10) VALUES ( " + i + ",  );");
+                }
+
             }
             for (int i = 1; i < 273; i++) {
-                System.out.println("INSERT INTO TeacherSchedule ( teacher_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10) " +
+                System.out.println("INSERT INTO TeacherSchedule (teacher_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10) " +
                         "VALUES ( " + i + ", );");
             }
+
+            lastPeriod = period;
         }
-// split classes into groups and offer then at different periods
-        //on the last periods of the sections, any non-chosen periods get chosen automatically
+
     }
 }
+/*
+split classes into groups and offer then at different periods
+on the last periods of the sections, any non-chosen periods get chosen automatically
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+ */

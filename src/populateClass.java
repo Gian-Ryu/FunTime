@@ -3,9 +3,9 @@ public class populateClass {
     private int id;
     private int teacher;
     private int course;
-    private String room;
+    private int room;
 
-    public populateClass(int id, int period, int teacher, int course, String room) {
+    public populateClass(int id, int period, int teacher, int course, int room) {
         this.period = period;
         this.id = id;
         this.teacher = teacher;
@@ -16,6 +16,30 @@ public class populateClass {
     @Override
     public String toString() {
         return "INSERT INTO Class (class_id, teacher_id, course_id, period, room_id) VALUES (" + id + ", " + teacher + ", " + course + ", " + period + ", " + room + ");";
+    }
+    public int getId()
+    {
+        return id;
+    }
+
+    public int getPeriod()
+    {
+        return period;
+    }
+
+    public int getTeacher()
+    {
+        return teacher;
+    }
+
+    public int getCourse()
+    {
+        return course;
+    }
+
+    public int getRoom()
+    {
+        return room;
     }
 }
 
