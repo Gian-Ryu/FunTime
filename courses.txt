@@ -1,3 +1,0 @@
-coursename1|type1
-coursename2|type2
-coursename3|type3
