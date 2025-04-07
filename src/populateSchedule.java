@@ -74,7 +74,7 @@ public class populateSchedule {
     }
     public static void main(String[] args)
     {
-        int lastPeriod = 0;
+        int lastPeriod = 1;
         ArrayList<populateClass> classes = new ArrayList();
         for (int g = 0; g < 4; g++) {
             getTeachers(g);
@@ -86,7 +86,7 @@ public class populateSchedule {
                     break;
                 case 1: period = 5;
                     break;
-                case 2: period = 9;
+                case 2: period = 8;
                     break;
                 default: period = 11;
                     break;
@@ -94,18 +94,29 @@ public class populateSchedule {
             for (int i = 1; i < 5001; i++) {
                 //student loop
                 for (int pd = lastPeriod; pd < period; pd++) {
-                    //loop for 10 period
                     int rClass = (int)(Math.random() * 18) + (17 * (g + 1));
+                    int teacher = 0;
+                    int room = 0;
+                    int course = 0;
                     for (populateClass e : classes)
                     {
                         if (e.getId() == rClass)
                         {
-                            //get values from class and put into insert
+                            teacher = e.getTeacher();
+                            room = e.getRoom();
+                            course = e.getCourse();
+                        }
+                        else
+                        {
+                            classes.add(new populateClass(classes.size() + 1, pd, teachers.get(rClass), rClass, rooms.get(rClass)));
                         }
                     }
-                    classes.add(new populateClass(classes.size() + 1, pd, rClass, rClass, rClass));
-                    System.out.println("INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10 " +
-                            "classid_7 , classid_8 , classid_9 , classid_10) VALUES ( " + i + ",  );");
+                    String output = "INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10 " +
+                            "classid_7 , classid_8 , classid_9 , classid_10) VALUES (";
+                    switch (pd)
+                    {
+                        case 1: output += i + ", " + ;
+                    }
                 }
 
             }
