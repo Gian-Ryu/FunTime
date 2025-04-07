@@ -12,7 +12,7 @@ Mr. Sean McCaffery|1
 Mr. L. Morgan|1
 Mr. Hadi Nasrollahi|1
 Ms. Donna Nathan|1
-Mrs. Iwona O'Brien|1
+Mrs. Iwona OBrien|1
 Mrs. Brenda Oquendo‑Orna|1
 Mrs. Caitlin Reste|1
 Ms. Jessica Tagliarino|1
@@ -208,7 +208,7 @@ Ms. Victoria Meyer|8
 Mr. Harry Misirlakis|8
 Amani Mohamed|8
 Ms. Kathleen Nadel|8
-Mr. Michael O'Shea|8
+Mr. Michael OShea|8
 Mr. Jeffrey Park|8
 Mr. Isaiah Pratt|8
 Ms. I Ramnath|8
