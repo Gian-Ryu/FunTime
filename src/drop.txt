@@ -1,0 +1,11 @@
+DROP TABLE StudentSchedule;
+DROP TABLE TeacherSchedule;
+DROP TABLE AssignmentGrade;
+DROP TABLE Assignments;
+DROP TABLE Student;
+DROP TABLE Class;
+DROP TABLE Course;
+DROP TABLE Weight;
+DROP TABLE Room;
+DROP TABLE Teacher;
+DROP TABLE Department;
