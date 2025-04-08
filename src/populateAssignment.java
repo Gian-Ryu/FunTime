@@ -15,22 +15,13 @@ import java.io.PrintStream;
 public class populateAssignment {
     public static void main(String[] args) throws FileNotFoundException {
         for (int s = 0; s < 5000; s++) {
-            if (s < 2)
-            {
-                System.setOut(new PrintStream(new FileOutputStream("output.txt")));
-                System.out.println(s);
-            }
-            else
-            {
-                System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
-            }
             for (int i = 1; i < 11; i++) // replace 10 with number of classes
             {
                 for (int n = 1; n < 13; n++) {
-                    System.out.println("INSERT INTO Assignments (assignment_id, class_id, weight_id) VALUES (" + (n + 15 * (s * 10 + i - 1)) + ", " + i + ", 1);");
+                    System.out.println("INSERT INTO Assignment (assignment_id, class_id, weight) VALUES (" + (n + 15 * (s * 10 + i - 1)) + ", " + i + ", 'minor');");
                 }
                 for (int n = 13; n < 16; n++) {
-                    System.out.println("INSERT INTO Assignments (assignment_id, class_id, weight_id) VALUES (" + (n + 15 * (s * 10 + i - 1)) + ", " + i + ", 2);");
+                    System.out.println("INSERT INTO Assignment (assignment_id, class_id, weight) VALUES (" + (n + 15 * (s * 10 + i - 1)) + ", " + i + ", 'major');");
                 }
 
             }

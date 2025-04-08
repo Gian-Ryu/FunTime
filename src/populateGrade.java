@@ -13,7 +13,7 @@
         FOREIGN KEY (assignment_id) REFERENCES Assignments(assignment_id) );
 
  */
-import java.util.Random;
+
 public class populateGrade {
     public static void main(String[] args) {
         for (int i = 1; i < 5001; i++) {

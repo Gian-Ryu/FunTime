@@ -34,16 +34,14 @@
         Spanish|AP
         Italian|AP
  */
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class populateSchedule {
     private static ArrayList<Integer> teachers = new ArrayList();
     private static ArrayList<Integer> rooms = new ArrayList();
     public static void getTeachers(int group)
     {
-        for (int t = 17 * group; t < (17 * (group + 1)); t++)
+        for (int t = 0; t < 17; t++)
         {
             int rand = (int)(Math.random() * 272) + 1;
             if (teachers.contains(rand))
@@ -59,7 +57,7 @@ public class populateSchedule {
     public static void getRooms(int group)
     {
 
-        for (int t = 17 * group; t < (17 * (group + 1)); t++)
+        for (int t = 0; t < 17; t++)
         {
             int rand = (int)(Math.random() * 720) + 1;
             if (rooms.contains(rand))
@@ -92,42 +90,51 @@ public class populateSchedule {
                     break;
             }
             for (int i = 1; i < 5001; i++) {
+                System.out.println("INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10 " +
+                        "classid_7 , classid_8 , classid_9 , classid_10) VALUES (" + i + ", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,);");
                 //student loop
                 for (int pd = lastPeriod; pd < period; pd++) {
-                    int rClass = (int)(Math.random() * 18) + (17 * (g + 1));
+                    int rClass = (int)(Math.random() * 17) + (17 * g);
                     int teacher = 0;
                     int room = 0;
                     int course = 0;
+                    boolean exists = false;
                     for (populateClass e : classes)
                     {
-                        if (e.getId() == rClass)
+                        if (e.getId() == rClass + 1)
                         {
+                            exists = true;
                             teacher = e.getTeacher();
                             room = e.getRoom();
                             course = e.getCourse();
                         }
-                        else
-                        {
-                            classes.add(new populateClass(classes.size() + 1, pd, teachers.get(rClass), rClass, rooms.get(rClass)));
-                        }
                     }
-                    String output = "INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10 " +
-                            "classid_7 , classid_8 , classid_9 , classid_10) VALUES (";
-                    switch (pd)
+                    if (!exists)
                     {
-                        case 1: output += i + ", " + ;
+                        classes.add(new populateClass(classes.size() + 1, pd, teachers.get(rClass), rClass + 1, rooms.get(rClass)));
                     }
+                    System.out.println("UPDATE StudentSchedule SET classid-" + pd + " = " + (rClass + 1) + " WHERE studentId = " + i + ";");
                 }
 
             }
-            for (int i = 1; i < 273; i++) {
-                System.out.println("INSERT INTO TeacherSchedule (teacher_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10) " +
-                        "VALUES ( " + i + ", );");
-            }
-
             lastPeriod = period;
         }
-
+        System.out.println(classes.size());
+        for (int i = 1; i < 273; i++) {
+            System.out.println("INSERT INTO TeacherSchedule (teacher_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10) " +
+                    "VALUES ( " + i + ", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);");
+            for (populateClass t : classes)
+            {
+                if (t.getTeacher() == i)
+                {
+                    System.out.println("UPDATE TeacherSchedule SET classid-" + t.getPeriod() + " = " + t.getId() + " WHERE teacherId = " + i + ";");
+                }
+            }
+        }
+        for (populateClass e : classes)
+        {
+            System.out.println(e);
+        }
     }
 }
 /*
