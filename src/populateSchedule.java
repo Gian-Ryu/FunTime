@@ -95,31 +95,27 @@ public class populateSchedule {
                 //student loop
                 for (int pd = lastPeriod; pd < period; pd++) {
                     int rClass = (int)(Math.random() * 17) + (17 * g);
-                    int teacher = 0;
-                    int room = 0;
-                    int course = 0;
                     boolean exists = false;
+                    int id = 0;
                     for (populateClass e : classes)
                     {
-                        if (e.getId() == rClass + 1)
+                        if (e.getTeacher() == teachers.get(rClass) && pd == e.getPeriod())
                         {
                             exists = true;
-                            teacher = e.getTeacher();
-                            room = e.getRoom();
-                            course = e.getCourse();
+                            id = e.getId();
                         }
                     }
                     if (!exists)
                     {
                         classes.add(new populateClass(classes.size() + 1, pd, teachers.get(rClass), rClass + 1, rooms.get(rClass)));
+                        id = classes.size();
                     }
-                    System.out.println("UPDATE StudentSchedule SET classid-" + pd + " = " + (rClass + 1) + " WHERE studentId = " + i + ";");
+                    System.out.println("UPDATE StudentSchedule SET classid-" + pd + " = " + id + " WHERE studentId = " + i + ";");
                 }
 
             }
             lastPeriod = period;
         }
-        System.out.println(classes.size());
         for (int i = 1; i < 273; i++) {
             System.out.println("INSERT INTO TeacherSchedule (teacher_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10) " +
                     "VALUES ( " + i + ", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);");
