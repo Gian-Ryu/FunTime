@@ -90,8 +90,8 @@ public class populateSchedule {
                     break;
             }
             for (int i = 1; i < 5001; i++) {
-                System.out.println("INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10 " +
-                        "classid_7 , classid_8 , classid_9 , classid_10) VALUES (" + i + ", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,);");
+                System.out.println("INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10" +
+                        ") VALUES (" + i + ", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);");
                 //student loop
                 for (int pd = lastPeriod; pd < period; pd++) {
                     int rClass = (int)(Math.random() * 17) + (17 * g);
@@ -110,7 +110,7 @@ public class populateSchedule {
                         classes.add(new populateClass(classes.size() + 1, pd, teachers.get(rClass), rClass + 1, rooms.get(rClass)));
                         id = classes.size();
                     }
-                    System.out.println("UPDATE StudentSchedule SET classid-" + pd + " = " + id + " WHERE studentId = " + i + ";");
+                    System.out.println("UPDATE StudentSchedule SET classid_" + pd + " = " + id + " WHERE student_id = " + i + ";");
                 }
 
             }
@@ -123,7 +123,7 @@ public class populateSchedule {
             {
                 if (t.getTeacher() == i)
                 {
-                    System.out.println("UPDATE TeacherSchedule SET classid-" + t.getPeriod() + " = " + t.getId() + " WHERE teacherId = " + i + ";");
+                    System.out.println("UPDATE TeacherSchedule SET classid_" + t.getPeriod() + " = " + t.getId() + " WHERE teacher_id = " + i + ";");
                 }
             }
         }
@@ -139,3 +139,4 @@ on the last periods of the sections, any non-chosen periods get chosen automatic
 abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
  */
+
