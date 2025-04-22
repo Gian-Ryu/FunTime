@@ -41,7 +41,7 @@ public class populateSchedule {
     private static ArrayList<Integer> rooms = new ArrayList();
     public static void getTeachers(int group)
     {
-        for (int t = 0; t < 17; t++)
+        for (int t = 0; t < 34; t++)
         {
             int rand = (int)(Math.random() * 272) + 1;
             if (teachers.contains(rand))
@@ -57,7 +57,7 @@ public class populateSchedule {
     public static void getRooms(int group)
     {
 
-        for (int t = 0; t < 17; t++)
+        for (int t = 0; t < 34; t++)
         {
             int rand = (int)(Math.random() * 720) + 1;
             if (rooms.contains(rand))
@@ -74,27 +74,25 @@ public class populateSchedule {
     {
         int lastPeriod = 1;
         ArrayList<populateClass> classes = new ArrayList();
-        for (int g = 0; g < 4; g++) {
+        for (int i = 1; i < 5001; i++) {
+            System.out.println("INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10" +
+                    ") VALUES (" + i + ", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);");
+        }
+        for (int g = 0; g < 2; g++) {
             getTeachers(g);
             getRooms(g);
             int period = 0;
             switch (g)
             {
-                case 0: period = 3;
-                    break;
-                case 1: period = 5;
-                    break;
-                case 2: period = 8;
+                case 0: period = 6;
                     break;
                 default: period = 11;
                     break;
             }
             for (int i = 1; i < 5001; i++) {
-                System.out.println("INSERT INTO StudentSchedule (student_id, classid_1, classid_2, classid_3, classid_4, classid_5, classid_6, classid_7, classid_8, classid_9, classid_10" +
-                        ") VALUES (" + i + ", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);");
                 //student loop
                 for (int pd = lastPeriod; pd < period; pd++) {
-                    int rClass = (int)(Math.random() * 17) + (17 * g);
+                    int rClass = (int)(Math.random() * 34) + (34 * g);
                     boolean exists = false;
                     int id = 0;
                     for (populateClass e : classes)
