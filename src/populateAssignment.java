@@ -15,7 +15,7 @@ import java.io.PrintStream;
 public class populateAssignment {
     public static void main(String[] args) throws FileNotFoundException {
         for (int s = 0; s < 5000; s++) {
-            for (int i = 1; i < 11; i++) // replace 10 with number of classes
+            for (int i = 1; i <= 10; i++) // replace 10 with number of classes
             {
                 for (int n = 1; n < 13; n++) {
                     System.out.println("INSERT INTO Assignment (assignment_id, class_id, weight) VALUES (" + (n + 15 * (s * 10 + i - 1)) + ", " + i + ", 'minor');");
