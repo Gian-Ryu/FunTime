@@ -21,11 +21,11 @@ public class populateGrade {
                 System.out.println("SELECT classid_" + c + " INTO @class_id FROM StudentSchedule WHERE student_id = " + i + ";");
                 for (int minor = 1; minor < 13; minor++) {
                     int grade = (int)(Math.random() * 26) + 75;
-                    System.out.println("INSERT INTO AssignmentGrade (student_id, assignment_id, grade) VALUES (" + i + ", " + (minor + 15 * ("@class_id" - 1) + ", " + grade + ");"));
+                    System.out.println("INSERT INTO AssignmentGrade (student_id, assignment_id, grade) VALUES (" + i + ", " + minor + " + 15 * (@class_id - 1)" + ", " + grade + ");"));
                 }
                 for (int major = 13; major < 16; major++) {
                     int grade = (int)(Math.random() * 26) + 75;
-                    System.out.println("INSERT INTO AssignmentGrade (student_id, assignment_id, grade) VALUES (" + i + ", " + (major + 15 * ("@class_id" - 1) + ", " + grade + ");"));
+                    System.out.println("INSERT INTO AssignmentGrade (student_id, assignment_id, grade) VALUES (" + i + ", " + major + " + 15 * (@class_id - 1)" + ", " + grade + ");"));
                 }
             }
 
